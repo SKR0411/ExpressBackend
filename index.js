@@ -13,8 +13,6 @@ app.get('/', (req, res) => {
 	res.render('index', {userName})
 })
 
-
-
 app.listen(3333, () => {
 	console.log('server started at http://localhost:3333')
 })
