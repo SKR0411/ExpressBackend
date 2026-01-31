@@ -1,21 +1,19 @@
 import express from 'express'
 import router from './router.js'
+import ejs from 'ejs';
 
 const app = express()
 const PORT = 3333
 
+// set ejs as view engine 
+app.set('view engine', ejs)
+
 app.get('/', (req, res) => {
-	res.send('hello world')
+	const userName = 'sujan kumar roy'
+	res.render('index', {userName})
 })
 
-app.use('/user', router)
 
-app.post('/users', express.json(), (req, res) => {
-	const { name, email } = req.body
-	res.json({
-		message: `User ${name} with email ${email} created successfully.`
-	})
-})
 
 app.listen(3333, () => {
 	console.log('server started at http://localhost:3333')
