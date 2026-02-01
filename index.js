@@ -3,12 +3,11 @@ import express from 'express'
 const app = express()
 const PORT = 3333
 
-// set ejs as view engine 
-app.set('view engine', 'ejs')
+app.use(express.static('public'))
+app.use(express.static('images'))
 
 app.get('/', (req, res) => {
-	const userName = 'sujan kumar roy'
-	res.render('index', {userName})
+	res.send('hello express')
 })
 
 app.listen(3333, () => {
